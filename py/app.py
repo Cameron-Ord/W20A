@@ -15,10 +15,14 @@ def get_client():
     cursor.close()
     conn.close()
     
-    print(results)
+    x = len(results)
 
-    if(results == None):
+    if(x < 1):
+        results = None
+        print("invalid entry")
         return None
     else:
+        print(results)
         return results
+    
 get_client()

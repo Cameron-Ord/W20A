@@ -9,7 +9,7 @@ def get_client():
     username = input("enter a user:")
     password = input("enter a password:")
 
-    cursor.execute('CALL get_client(?, ?)', [username, password] )
+    cursor.execute('CALL get_client(?, ?)', [username, password])
     results = cursor.fetchall()
 
     cursor.close()
@@ -17,4 +17,8 @@ def get_client():
     
     print(results)
 
+    if(results == None):
+        return None
+    else:
+        return results
 get_client()

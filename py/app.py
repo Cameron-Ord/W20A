@@ -78,12 +78,15 @@ def login():
     conn.close()
     x = len(results)
     
-    while(True):
-        if(x < 1):
-            print("incorrect user/password")
-            login()
-        else:
-            break
+    
+    if(x < 1):
+        print("incorrect user/password")
+        login()
+    elif(x>0):
+        return
+    else:
+        print('oops')
+   
         
 def choose_function():
 

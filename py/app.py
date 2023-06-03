@@ -8,8 +8,8 @@ def get_client():
     conn = mariadb.connect(**dbcreds.conn_params)
     cursor = conn.cursor()
     try:
-        username = input("enter a user:")
-        password = input("enter a password:")
+        username = input("enter a user: ")
+        password = input("enter a password: ")
 
         cursor.execute('CALL get_client(?, ?)', [username, password])
         results = cursor.fetchall()
@@ -39,10 +39,10 @@ def client_post():
     cursor = conn.cursor()
     try:
 
-        client_id = input("Enter client ID")
+        client_id = input("Enter client ID: ")
         client_id = int(client_id)
-        title = input("Enter title")
-        content = input("Enter content")
+        title = input("Enter title: ")
+        content = input("Enter content: ")
 
         cursor.execute('CALL insert_post(?,?,?)', [client_id, title, content])
         cursor.close()
@@ -85,8 +85,8 @@ def login():
     conn = mariadb.connect(**dbcreds.conn_params)
     cursor = conn.cursor()
     try:
-        username = input("USERNAME:")
-        password = input("PASSWORD")
+        username = input("USERNAME: ")
+        password = input("PASSWORD: ")
 
         cursor.execute('CALL get_client(?, ?)', [username, password])
         results = cursor.fetchall()

@@ -65,8 +65,11 @@ def archive_posts():
         cursor = conn.cursor()    
         cursor.execute('CALL get_posts()')
         results = cursor.fetchall()
+        
+        for i in results:
+            print(i)
+          
 
-        print(results)
 
         cursor.close()
         conn.close()
@@ -100,7 +103,7 @@ def login():
             print("incorrect user/password")
             login()
         elif(x>0):
-            print(f'Welcome, {results[1]}')
+            print(f'Welcome, {results}')
             return
         else:
             print('oops')
